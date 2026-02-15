@@ -1,0 +1,104 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TRAFFICIQ — Evidence Verification</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="{% static 'css/ev_verification.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<div class="shell">
+
+  <a class="back-link" href="{% url 'memo_verification' %}">
+    ← Back to Memo List
+  </a>
+
+  <div class="page-title">
+    <span class="dot"></span> Evidence Verification
+  </div>
+
+  <div class="top-row">
+    <div class="card-glass">
+      <div class="media-box">
+        {% if is_video %}
+    <video controls>
+        <source src="{{ evidence.file.url }}">
+    </video>
+{% elif is_image %}
+    <img src="{{ evidence.file.url }}" alt="Evidence Image">
+{% else %}
+    <p>Unsupported file format</p>
+{% endif %}
+      </div>
+    </div>
+
+    <div class="card-glass">
+      <div class="section-heading">Details</div>
+
+      <div class="detail-row"><b>Memo ID:</b> {{ evidence.memo_id }}</div>
+      <div class="detail-row"><b>Type:</b> {{ evidence.violation_type }}</div>
+      <div class="detail-row"><b>Date:</b> {{ evidence.uploaded_at }}</div>
+      <div class="detail-row"><b>Location:</b> {{ evidence.location }}</div>
+      <div class="detail-row">
+  <span class="detail-label">Status:</span>
+  <span class="detail-value" id="statusText">
+    {{ evidence.status }}
+  </span>
+</div>
+      <div class="detail-row desc">
+        <b>Description:</b> {{ evidence.description }}
+      </div>
+    </div>
+  </div>
+  <div class="actions-card">
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="Verified">
+    <button type="submit" class="btn-block">
+      Approve
+    </button>
+  </form>
+  <form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="Rejected">
+    <button type="submit" class="btn-block btn-outline">
+      Reject
+    </button>
+  </form>
+</div>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+</div>
+
+{% comment %} <script>
+function updateStatus(status) {
+  if (!confirm("Set status to " + status + "?")) return;
+
+  fetch("{% url 'update_evidence_status' evidence.memo_id %}", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": "{{ csrf_token }}"
+    },
+    body: JSON.stringify({ status: status })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      document.getElementById("statusText").innerText = status;
+      alert("Status updated");
+    }
+  });
+}
+</script> {% endcomment %}
+
+</body>
+</html>

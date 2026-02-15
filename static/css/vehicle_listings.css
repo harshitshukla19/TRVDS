@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle, #111, #000);
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: #0d0d0d;
+    padding: 20px;
+}
+
+.logo {
+    color: #ff2c2c;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #ccc;
+    padding: 10px;
+    display: block;
+    border-radius: 6px;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+    background: #8b0000;
+    color: #fff;
+}
+
+.logout {
+    color: #ffb703;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    padding: 40px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Table */
+.table-card {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+    padding: 25px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+th {
+    color: #bbb;
+}
+
+tr:not(:last-child) {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.status.pending {
+    background: #f5b700;
+    color: #000;
+}
+
+.status.paid {
+    background: #2ecc71;
+    color: #000;
+}

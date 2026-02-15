@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Listings | TRAFFICIQ</title>
+    <link rel="stylesheet" href="{% static 'css/vehicle_listings.css' %}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">TRAFFICIQ</h2>
+        <ul>
+            <li><a href="{% url 'admin_dashboard' %}">📊 Dashboard</a></li>
+            <li><a href="{% url 'admin_profiles' %}">👤 Admin Profile</a></li>
+            <li><a href="{% url 'vehicle_list' %}" class="active">🚗 Vehicles</a></li>
+            <li><a href="{% url 'memo_verification' %}">📜 Memos</a></li>
+            <li><a href="{% url 'boundary_creation' %}">🗺️ Boundaries</a></li>
+            <li><a href="{% url 'logout' %}" class="logout">Logout</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="header">
+            <h1>Vehicle Listings</h1>
+            <p>Signed in as <strong>{{ request.user.username }}</strong></p>
+        </div>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle No</th>
+                        <th>Owner</th>
+                        <th>Violation</th>
+                        <th>Fine</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in vehicles %}
+                    <tr>
+                        <td>{{ v.vehicle_number }}</td>
+                        <td>{{ v.violator_name }}</td>
+                        <td>{{ v.violation_type }}</td>
+                        <td>₹{{ v.amount }}</td>
+                        <td>
+                            {% if v.status == 'Unpaid' %}
+                                <span class="status pending">Pending</span>
+                            {% else %}
+                                <span class="status paid">Paid</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No records found</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</div>
+</body>
+</html>
+
+
+{% comment %} {% extends "Abase.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/vehicle_listings.css' %}">
+
+        <div class="header">
+            <h1>Vehicle Listings</h1>
+            <p>Signed in as <strong>{{ request.user.username }}</strong></p>
+        </div>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle No</th>
+                        <th>Owner</th>
+                        <th>Violation</th>
+                        <th>Fine</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for v in vehicles %}
+                    <tr>
+                        <td>{{ v.vehicle_number }}</td>
+                        <td>{{ v.violator_name }}</td>
+                        <td>{{ v.violation_type }}</td>
+                        <td>₹{{ v.amount }}</td>
+                        <td>
+                            {% if v.status == 'Unpaid' %}
+                                <span class="status pending">Pending</span>
+                            {% else %}
+                                <span class="status paid">Paid</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No records found</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+{% endblock %} {% endcomment %}

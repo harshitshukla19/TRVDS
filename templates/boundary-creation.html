@@ -1,0 +1,80 @@
+{% extends "Abase.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h2>Boundary Creation</h2>
+  <div>Signed in as <strong class="text-danger">{{ request.user.username }}</strong></div>
+</div>
+
+<div class="card-glass p-4 mb-4">
+  <h5 class="mb-3">Define the start and end points of your detection boundary.</h5>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label>Boundary Name</label>
+        <input type="text" name="name" class="form-control" required>
+      </div>
+
+      <div class="col-md-6">
+        <label>Length (KM)</label>
+        <input type="number" step="0.01" name="length" class="form-control" required>
+      </div>
+
+      <div class="col-md-6">
+        <label>Start Point</label>
+        <input type="text" name="start_point" class="form-control" required>
+      </div>
+
+      <div class="col-md-6">
+        <label>End Point</label>
+        <input type="text" name="end_point" class="form-control" required>
+      </div>
+    </div>
+
+    <button class="btn btn-danger mt-4">
+      ➕ Draw New Boundary
+    </button>
+  </form>
+
+  <small class="d-block mt-3">
+    Example: Sector 62 – NH9 Crossing, Length: 2.3 km
+  </small>
+</div>
+
+<div class="card-glass p-3">
+  <h5 class="mb-3">Created Boundaries</h5>
+
+  {% if boundaries %}
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Length</th>
+        <th>Created</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for b in boundaries %}
+      <tr>
+        <td>{{ b.name }}</td>
+        <td>{{ b.start_point }}</td>
+        <td>{{ b.end_point }}</td>
+        <td>{{ b.length_km }} km</td>
+        <td>{{ b.created_at|date:"d M Y" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No boundaries created yet.</p>
+  {% endif %}
+</div>
+
+{% endblock %}

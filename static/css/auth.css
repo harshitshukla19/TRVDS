@@ -1,0 +1,136 @@
+/* General Page Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #000; /* Pure black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+/* The Main Card Container */
+.card {
+    background-color: #111; /* Very dark grey card */
+    padding: 40px;
+    border-radius: 20px;
+    width: 400px;
+    /* The Red Glow Effect */
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.15), 0 0 5px rgba(255, 0, 0, 0.1); 
+    border: 1px solid #1f1f1f;
+}
+
+/* Title Styling */
+.title {
+    color: #ff3333; /* Red text */
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* The small red line under the title */
+.underline {
+    width: 60px;
+    height: 3px;
+    background-color: #cc0000;
+    margin: 0 auto 30px auto;
+    border-radius: 2px;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+    color: #555;
+}
+
+.input-group input:focus {
+    border-color: #ff3333; /* Red border on click */
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+    margin-top: 30px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Sign In Button (Red) */
+.sign-in {
+    background-color: #e60000;
+    color: white;
+    border: none;
+}
+
+.sign-in:hover {
+    background-color: #ff1a1a;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+/* Cancel Button (Outline) */
+.cancel {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: white;
+}
+
+.cancel:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sign Up Link Styling */
+.signup-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.signup-footer a {
+    color: #ff3333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-footer a:hover {
+    text-decoration: underline;
+}

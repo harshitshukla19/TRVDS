@@ -1,0 +1,51 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+<script src="{% static 'js/auth.js' %}"></script>
+
+<div class="card">
+    <h2 class="title">Sign Up</h2>
+    <div class="underline"></div>
+
+    {% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} text-center">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+    <form id="signupForm" method="POST" action="{% url 'user_signup' %}">
+        {% csrf_token %}
+        
+        <div class="input-group">
+            <label>Full Name</label>
+            {{ form.username }}
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            {{ form.email }}
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            {{ form.password }}
+        </div>
+
+        {% comment %} <div class="input-group">
+            <label>Confirm Password</label>
+            {{ form.Confirm_password }}
+        </div> {% endcomment %}
+
+        <div class="button-group">
+            <button type="submit" class="btn sign-in">
+                Register
+            </button>
+            <button type="reset" class="btn cancel">Cancel</button>
+        </div>
+    </form>
+
+    <div class="signup-footer">
+        Already registered? <a href="{% url 'user_login' %}">Login</a>
+    </div>
+</div>

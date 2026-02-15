@@ -1,0 +1,122 @@
+body {
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background: linear-gradient(180deg, #111, #000);
+      border-right: 1px solid rgba(255, 0, 0, 0.3);
+      min-height: 100vh;
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      z-index: 100;
+    }
+
+    .sidebar .nav-link {
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: #bfbfbf;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .sidebar .nav-link:hover {
+      background: rgba(255, 0, 0, 0.15);
+      color: #ff4d4d !important;
+      transform: translateX(5px);
+    }
+
+    .sidebar .logoutBtn:hover {
+      background: rgba(255, 0, 0, 0.4);
+      color: #fff !important;
+    }
+
+    .card-glass, .header-card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      color: #f5f5f5;
+    }
+
+    .card-glass:hover, .header-card:hover {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+      transform: scale(1.01);
+    }
+
+    h2, h5 {
+      color: #ff2e2e;
+    }
+
+    .btn-ti {
+      background: linear-gradient(90deg, #ff0000, #b30000);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ti:hover {
+      background: linear-gradient(90deg, #ff3c3c, #ff0000);
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    }
+
+    .table thead th {
+      color: #ff3c3c;
+      border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+      background: transparent;
+    }
+
+    .table tbody tr td {
+      color: #f0f0f0 !important;
+      background: transparent;
+    }
+
+    .main-content {
+      margin-left: 260px;
+      padding: 2rem;
+    }
+
+    .reward-coin {
+      font-size: 2rem;
+      color: #ffae00;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ffae00;
+    }
+
+    .certificate-badge {
+      background: linear-gradient(90deg, gold, orange);
+      border-radius: 8px;
+      color: #000;
+      font-weight: bold;
+      padding: 6px 10px;
+      display: inline-block;
+    }
+
+    .progress {
+      background: rgba(255, 255, 255, 0.1);
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    .progress-bar {
+      background: linear-gradient(90deg, #ff0000, #ff6600);
+    }
+
+    .form-control {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: #fff;
+    }
+    .form-control::placeholder {
+      color: #bbb;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main-content { margin-left: 0; }
+    }

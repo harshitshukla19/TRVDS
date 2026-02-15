@@ -1,0 +1,41 @@
+ body 
+{ 
+  background:#000; 
+  color:#fff; 
+  font-family:Poppins,sans-serif 
+}
+.sidebar 
+{ 
+  min-height:100vh; 
+  background:#111; 
+  width:280px 
+}
+.nav-link 
+{ 
+  color:#ccc; 
+  cursor:pointer 
+}
+.nav-link.active 
+{ 
+  background:rgba(255,0,0,.25); 
+  color:#ff4444 
+}
+.card-glass 
+{ 
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.1); 
+}
+.hidden 
+{ 
+  display:none 
+}
+.form-control {
+  background: #111;
+  color: #fff;
+  border: 1px solid #333;
+}
+.form-control:focus {
+  border-color: #ff0000;
+}

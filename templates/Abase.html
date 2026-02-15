@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TrafficIQ Admin Dashboard{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+</head>
+<body>
+<div class="d-flex">
+
+<!-- SIDEBAR -->
+<aside class="sidebar p-4">
+  <h4 class="text-danger fw-bold">TRAFFICIQ</h4>
+  <nav class="nav flex-column mt-4">
+    <a class="nav-link" href="{% url 'admin_dashboard' %}">📊 Dashboard</a>
+    <a class="nav-link mb-1" href="{% url 'admin_profiles' %}">👤 Admin Profile</a>
+    <a class="nav-link" href="{% url 'vehicle_list' %}">🚗 Vehicles</a>
+    <a class="nav-link active" href="{% url 'memo_verification' %}">📜 Memos</a>
+    <a class="nav-link" href="{% url 'boundary_creation' %}">🗺️ Boundaries</a>
+    <a class="nav-link text-warning mt-3" href="{% url 'logout' %}">🚪 Logout</a>
+  </nav>
+</aside>
+
+<!-- MAIN -->
+<main class="flex-grow-1 p-4">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

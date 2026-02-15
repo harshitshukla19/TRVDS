@@ -1,0 +1,40 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>About – TrafficIQ</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+  <!-- ===== CONTENT ===== -->
+  <div class="container py-5">
+    <h3 class="fw-bold">About TrafficIQ</h3>
+
+    <p class="text-muted mt-3">
+      TrafficIQ is a modern, premium traffic violation detection platform designed
+      to automate enforcement workflows. The system supports AI-based violation
+      detection, evidence verification, memo validation, and FIR auto-generation.
+    </p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Project JS -->
+  <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

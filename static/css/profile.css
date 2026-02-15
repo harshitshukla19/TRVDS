@@ -1,0 +1,51 @@
+body {
+  background: radial-gradient(circle at top left, #000000, #111, #1a1a1a);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+.card-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+  transition: 0.3s ease;
+}
+
+.card-glass:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 35px rgba(255, 50, 50, 0.6);
+}
+
+.avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #ff0000;
+  object-fit: cover;
+  margin-bottom: 10px;
+  background: #000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.btn-ti {
+  background: linear-gradient(90deg, #ff0000, #cc0000);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+input.form-control {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: black;
+}
+
+.title {
+  color: #ff3333;
+  font-weight: 700;
+}
